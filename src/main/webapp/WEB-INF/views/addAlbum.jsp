@@ -16,6 +16,9 @@
 				<div>
 					<label>Tytuł</label>
 					<form:input path="title" type="text" />
+					<label>Wykonawca</label>
+					<form:input path="artist" type="text" />
+					<input type="submit" value="Dodaj"/>
 				</div>
 			</fieldset>
 		</form:form>
