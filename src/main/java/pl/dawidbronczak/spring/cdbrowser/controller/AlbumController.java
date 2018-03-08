@@ -40,4 +40,9 @@ public class AlbumController {
 		albumService.addAlbum(newAlbum);
 		return "redirect:/albums";
 	}
+	@RequestMapping("/remove")
+	public String deleteAlbum(@RequestParam("id") int albumId){
+			albumService.removeAlbum(albumId);
+			return "redirect:/albums";
+	}
 }

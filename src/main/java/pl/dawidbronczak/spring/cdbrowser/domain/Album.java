@@ -22,8 +22,7 @@ public class Album {
 	protected Album(){
 		super();
 	}
-	public Album(int id,String title,String artist){
-		albumId = id;
+	public Album(String title,String artist){
 		this.title = title;
 		this.artist = artist;
 	}

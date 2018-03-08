@@ -21,14 +21,12 @@ public class AlbumDaoImpl implements AlbumDao {
 	@Transactional 
 	@Override
 	public void addAlbum(Album album) {
-		Query query;
-		
-
+		entityManager.persist(album);
 	}
 	@Transactional 
 	@Override
 	public void updateAlbum(Album album) {
-		// TODO Auto-generated method stub
+		entityManager.merge(album);
 
 	}
 	
@@ -38,13 +36,15 @@ public class AlbumDaoImpl implements AlbumDao {
 		TypedQuery<Album> query;
 		query = entityManager.createQuery("select a from Album a",Album.class);
 		List<Album> listAlbums = query.getResultList();
-		return listAlbums;
+		return listAlbums;	
 	}
 	@Transactional 
 	@Override
 	public void removeAlbum(int id) {
-		// TODO Auto-generated method stub
-
+		Query query;
+		query = entityManager.createQuery("delete from Album a where a.albumId = :id");
+		query.setParameter("id", id);
+		query.executeUpdate();
 	}
 	@Transactional 
 	@Override
