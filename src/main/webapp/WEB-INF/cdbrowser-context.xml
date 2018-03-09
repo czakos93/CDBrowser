@@ -42,7 +42,8 @@
 		<beans:bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"> 
 			<beans:property name="entityManagerFactory" ref="entityManagerFactory" /> 
 		</beans:bean>
-		
+		<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+		<resources location="/resources/" mapping="/resource/**"/>
 		
 				
 		<context:component-scan base-package="pl.dawidbronczak.spring.cdbrowser" />

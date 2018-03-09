@@ -8,6 +8,9 @@
 <title>${album.title}</title>
 </head>
 <body>
-	<div>${album.title}</div>
+	<div>${album.title}</div> 
+	<div>
+		<img src="<c:url value="/resource/album_images/${album.albumId }.png"></c:url>"/>
+	</div>
 </body>
 </html>

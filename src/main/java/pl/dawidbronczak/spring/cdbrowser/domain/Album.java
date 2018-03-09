@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 
 
@@ -12,20 +15,21 @@ import javax.persistence.Table;
 @Table(name="albums")
 public class Album {
 	
+
 	@Id
 	@GeneratedValue
 	@Column(name="album_id")
 	private int albumId;
 	private String title;
 	private String artist;
+	@Transient
+	private MultipartFile albumImage;
 	
 	protected Album(){
 		super();
 	}
-	public Album(String title,String artist){
-		this.title = title;
-		this.artist = artist;
-	}
+
+
 	public int getAlbumId() {
 		return albumId;
 	}
@@ -43,5 +47,11 @@ public class Album {
 	}
 	public void setArtist(String artist) {
 		this.artist = artist;
+	}
+	public MultipartFile getAlbumImage() {
+		return albumImage;
+	}
+	public void setAlbumImage(MultipartFile albumImage) {
+		this.albumImage = albumImage;
 	}
 }

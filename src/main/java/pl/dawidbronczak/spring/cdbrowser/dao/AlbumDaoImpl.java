@@ -27,6 +27,7 @@ public class AlbumDaoImpl implements AlbumDao {
 	@Override
 	public void updateAlbum(Album album) {
 		entityManager.merge(album);
+			
 
 	}
 	
@@ -41,19 +42,12 @@ public class AlbumDaoImpl implements AlbumDao {
 	@Transactional 
 	@Override
 	public void removeAlbum(int id) {
-		Query query;
-		query = entityManager.createQuery("delete from Album a where a.albumId = :id");
-		query.setParameter("id", id);
-		query.executeUpdate();
+		Album albumToRemove = getAlbumById(id);
+		entityManager.remove(albumToRemove);
 	}
 	@Transactional 
 	@Override
 	public Album getAlbumById(int id) {
-		Album tempAlbum;
-		Query query;
-		query = entityManager.createQuery("select a from Album a where a.albumId = :id", Album.class);
-		query.setParameter("id",id);
-		tempAlbum = (Album) query.getSingleResult();
-		return tempAlbum;
+		return entityManager.find(Album.class,id);
 	}
 }

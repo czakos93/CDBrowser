@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div>
-		<form:form modelAttribute="newAlbum">
+		<form:form modelAttribute="newAlbum" enctype="multipart/form-data">
 			<fieldset>				
 				<legend>Dodaj album</legend>
 				<div>
@@ -18,7 +18,9 @@
 					<form:input path="title" type="text" />
 					<label>Wykonawca</label>
 					<form:input path="artist" type="text" />
+					<form:input path="albumImage" type="file" class="form:input-large"/>
 					<input type="submit" value="Dodaj"/>
+
 				</div>
 			</fieldset>
 		</form:form>
