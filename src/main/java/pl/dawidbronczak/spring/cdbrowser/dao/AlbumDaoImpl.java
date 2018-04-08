@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
@@ -23,12 +22,11 @@ public class AlbumDaoImpl implements AlbumDao {
 	public void addAlbum(Album album) {
 		entityManager.persist(album);
 	}
+	
 	@Transactional 
 	@Override
 	public void updateAlbum(Album album) {
 		entityManager.merge(album);
-			
-
 	}
 	
 	@Transactional 
