@@ -50,7 +50,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 				user.isEnable(), true, true, true, authorities);
 	}
 	
-	private void addUserToDB(User userToAdd){
-		userDao.addUser(userToAdd);
-	}
+
 }
